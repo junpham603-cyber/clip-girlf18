@@ -1,77 +1,113 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Meme mèo 😺</title>
-
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle, #111, #000);
-      overflow: hidden;
-      font-family: Arial;
-    }
-
-    h1 {
-      color: white;
-      margin-bottom: 20px;
-      animation: fade 1.5s ease-in-out;
-    }
-
-    img {
-      width: 340px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.25);
-      animation: float 3s ease-in-out infinite;
-      transition: 0.3s;
-    }
-
-    img:hover {
-      transform: scale(1.1);
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .emoji {
-      position: absolute;
-      font-size: 28px;
-      animation: fly 7s linear infinite;
-      opacity: 0.6;
-    }
-
-    @keyframes fly {
-      0% { transform: translateY(100vh); }
-      100% { transform: translateY(-10vh); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi người yêu ngoan xinh yêu</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        h1 {
+            color: #ff4d4d;
+            text-align: center;
+            padding: 0 20px;
+            font-size: 2.5rem;
+        }
+        
+        .gif-container {
+            margin: 20px;
+        }
+        
+        img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .buttons {
+            position: relative;
+            margin-top: 30px;
+            width: 300px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        button {
+            font-size: 1.2rem;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            position: absolute;
+        }
+        
+        #yes-btn {
+            background-color: #ff4d4d;
+            color: white;
+            left: 20px;
+            box-shadow: 0 4px 6px rgba(255, 77, 77, 0.3);
+        }
+        
+        #yes-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff1a1a;
+        }
+        
+        #no-btn {
+            background-color: #f2f2f2;
+            color: #333;
+            right: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-
 <body>
 
-  <h1>Meme mèo của Jun 😺</h1>
+    <h1 id="question">Cậu có yêu tớ không? 🐱</h1>
 
-  <!-- Ảnh của bạn (QUAN TRỌNG) -->
-  <img src="anhmeomeme.png" alt="meme mèo">
+    <div class="gif-container">
+        <!-- Ảnh GIF mèo lúc đầu -->
+        <img id="cat-gif" src="https://media.tenor.com/efsaU46r7aQAAAAi/peach-goma.gif" alt="Mèo đáng yêu">
+    </div>
 
-  <!-- emoji bay -->
-  <div class="emoji" style="left:10%">😺</div>
-  <div class="emoji" style="left:30%; animation-delay:2s">🐱</div>
-  <div class="emoji" style="left:55%; animation-delay:1s">😹</div>
-  <div class="emoji" style="left:80%; animation-delay:3s">😻</div>
+    <div class="buttons">
+        <button id="yes-btn" onclick="sayYes()">Cóoooo ❤️</button>
+        <button id="no-btn" onmouseover="moveButton()" onclick="moveButton()">Không 😝</button>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById("no-btn");
+            // Tính toán vị trí ngẫu nhiên trong khoảng an toàn của màn hình
+            const x = Math.random() * (window.innerWidth - 150) - (window.innerWidth / 2) + 75;
+            const y = Math.random() * (window.innerHeight - 150) - (window.innerHeight / 2) + 75;
+            
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function sayYes() {
+            // Đổi chữ và đổi ảnh GIF mèo ôm nhau khi chọn Có
+            document.getElementById("question").innerText = "Biết ngay mà! Yêu cậu nhất trên đời 💕";
+            document.getElementById("cat-gif").src = "https://media.tenor.com/bK1roJ2z2sMAAAAi/peach-and-goma-peach-goma.gif";
+            
+            // Ẩn 2 nút bấm đi
+            document.getElementById("no-btn").style.display = "none";
+            document.getElementById("yes-btn").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
