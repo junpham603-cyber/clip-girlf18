@@ -20,62 +20,58 @@
     h1 {
       color: white;
       margin-bottom: 20px;
-      animation: fadeIn 2s ease-in-out;
+      animation: fade 1.5s ease-in-out;
     }
 
-    /* Ảnh mèo */
-    .meme {
-      width: 320px;
+    img {
+      width: 340px;
       border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+      box-shadow: 0 0 25px rgba(255,255,255,0.25);
       animation: float 3s ease-in-out infinite;
-      transition: transform 0.3s;
+      transition: 0.3s;
     }
 
-    .meme:hover {
-      transform: scale(1.1) rotate(-2deg);
+    img:hover {
+      transform: scale(1.1);
     }
 
-    /* Hiệu ứng bay lên xuống */
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+      100% { transform: translateY(0); }
     }
 
-    /* chữ xuất hiện */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* icon mèo bay */
-    .cat {
+    .emoji {
       position: absolute;
-      font-size: 30px;
-      animation: fly 8s linear infinite;
+      font-size: 28px;
+      animation: fly 7s linear infinite;
       opacity: 0.6;
     }
 
     @keyframes fly {
-      0% { transform: translateY(100vh) translateX(0); }
-      100% { transform: translateY(-10vh) translateX(100px); }
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Meme mèo siêu cấp 😺</h1>
+  <h1>Meme mèo của Jun 😺</h1>
 
-  <!-- Ảnh của bạn -->
-  <img class="meme" src="anhmeomeme.png" alt="meme mèo">
+  <!-- Ảnh của bạn (QUAN TRỌNG) -->
+  <img src="anhmeomeme.png" alt="meme mèo">
 
-  <!-- icon mèo bay -->
-  <div class="cat" style="left:10%">😺</div>
-  <div class="cat" style="left:30%; animation-delay:2s">🐱</div>
-  <div class="cat" style="left:60%; animation-delay:4s">😹</div>
-  <div class="cat" style="left:80%; animation-delay:1s">😻</div>
+  <!-- emoji bay -->
+  <div class="emoji" style="left:10%">😺</div>
+  <div class="emoji" style="left:30%; animation-delay:2s">🐱</div>
+  <div class="emoji" style="left:55%; animation-delay:1s">😹</div>
+  <div class="emoji" style="left:80%; animation-delay:3s">😻</div>
 
 </body>
 </html>
