@@ -1,91 +1,81 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Meme mèo 😼</title>
+  <meta charset="UTF-8">
+  <title>Meme mèo 😺</title>
 
-<style>
-body{
-    background:#111;
-    color:white;
-    text-align:center;
-    font-family:Arial;
-    padding-top:50px;
-    overflow:hidden;
-}
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, #111, #000);
+      overflow: hidden;
+      font-family: Arial;
+    }
 
-/* CHỮ CHẠY */
-.marquee {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-}
+    h1 {
+      color: white;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
 
-.marquee span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: move 8s linear infinite;
-    font-size: 20px;
-    color: pink;
-    font-weight: bold;
-}
+    /* Ảnh mèo */
+    .meme {
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+      animation: float 3s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
 
-@keyframes move {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
+    .meme:hover {
+      transform: scale(1.1) rotate(-2deg);
+    }
 
-/* ẢNH MÈO */
-img {
-    width: 280px;
-    border-radius: 20px;
-    margin-top: 30px;
-    box-shadow: 0 0 25px pink;
-    animation: float 2s ease-in-out infinite;
-}
+    /* Hiệu ứng bay lên xuống */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
 
-/* MÈO NHÚN NHÚN */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
+    /* chữ xuất hiện */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* NÚT */
-button {
-    margin-top: 25px;
-    padding: 10px 20px;
-    border: none;
-    background: pink;
-    color: black;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-}
+    /* icon mèo bay */
+    .cat {
+      position: absolute;
+      font-size: 30px;
+      animation: fly 8s linear infinite;
+      opacity: 0.6;
+    }
 
-button:hover {
-    background: hotpink;
-}
-</style>
-
+    @keyframes fly {
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-10vh) translateX(100px); }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- CHỮ MEME CHẠY -->
-<div class="marquee">
-    <span>🐱 Meme mèo đang hoạt động... nhìn em giống con mèo này không 😼 💖 💖 💖</span>
-</div>
+  <h1>Meme mèo siêu cấp 😺</h1>
 
-<!-- ẢNH MÈO -->
-<img src="https://i.imgur.com/JWbZg8P.jpeg" alt="mèo meme">
+  <!-- Ảnh của bạn -->
+  <img class="meme" src="anhmeomeme.png" alt="meme mèo">
 
-<br>
-
-<button onclick="alert('Em bị trap bởi meme mèo rồi 😏')">
-    Bấm vào đây
-</button>
+  <!-- icon mèo bay -->
+  <div class="cat" style="left:10%">😺</div>
+  <div class="cat" style="left:30%; animation-delay:2s">🐱</div>
+  <div class="cat" style="left:60%; animation-delay:4s">😹</div>
+  <div class="cat" style="left:80%; animation-delay:1s">😻</div>
 
 </body>
 </html>
